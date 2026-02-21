@@ -1,0 +1,159 @@
+/* ===== Landing Page ===== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.landing-page {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-image set via JS import in LandingPage.jsx */
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* ── Content ── */
+.landing-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ── "✦ Welcome To ✦" ── */
+.landing-welcome {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.95rem;
+  color: #3b2a5a;
+  letter-spacing: 3px;
+  margin: 0 0 0.3rem;
+  text-shadow: 1px 1px 0 #c4a8f0, -1px -1px 0 #c4a8f0;
+}
+
+/* ── EmoSPACE title ── */
+.landing-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  margin: 0;
+  letter-spacing: 3px;
+  line-height: 1.1;
+  display: flex;
+}
+
+.title-letter {
+  display: inline-block;
+  color: #7c5cbf;
+  text-shadow:
+    3px 3px 0 #3b2060,
+    -1px -1px 0 #c4a8f0;
+  animation: letterGlow 3s ease-in-out infinite alternate;
+}
+
+/* Stagger glow per letter */
+.title-letter:nth-child(1) {
+  animation-delay: 0.00s;
+}
+
+.title-letter:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.title-letter:nth-child(3) {
+  animation-delay: 0.30s;
+}
+
+.title-letter:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.title-letter:nth-child(5) {
+  animation-delay: 0.60s;
+}
+
+.title-letter:nth-child(6) {
+  animation-delay: 0.75s;
+}
+
+.title-letter:nth-child(7) {
+  animation-delay: 0.90s;
+}
+
+.title-letter:nth-child(8) {
+  animation-delay: 1.05s;
+}
+
+@keyframes letterGlow {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(1.35);
+    text-shadow: 3px 3px 0 #3b2060, -1px -1px 0 #c4a8f0, 0 0 20px #c4a8f0;
+  }
+}
+
+/* ── TEAM tag ── */
+.landing-team {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  color: #3b2a5a;
+  letter-spacing: 2px;
+  margin: 0.3rem 0 1.8rem;
+  text-shadow: 1px 1px 0 #c4a8f0;
+}
+
+/* ── Enter button ── */
+.landing-enter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2.2rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #7c5cbf, #a87de8);
+  color: #fff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #3b2060, 0 8px 24px rgba(120, 70, 200, 0.35);
+  transition: box-shadow 0.15s, transform 0.15s;
+  white-space: nowrap;
+  margin-top: 0.8rem;
+}
+
+.landing-enter-btn:hover {
+  box-shadow: 0 6px 0 #3b2060, 0 10px 30px rgba(120, 70, 200, 0.5);
+}
+
+.landing-enter-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #3b2060;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .landing-welcome {
+    font-size: 0.65rem;
+  }
+
+  .landing-title {
+    font-size: 2.1rem;
+  }
+
+  .landing-team {
+    font-size: 0.45rem;
+  }
+
+  .landing-enter-btn {
+    font-size: 0.55rem;
+    padding: 0.75rem 1.5rem;
+  }
+}

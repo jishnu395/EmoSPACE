@@ -1,0 +1,25 @@
+.calm-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.calm-flower {
+  position: absolute;
+  object-fit: contain;
+  transform-origin: center;
+  animation: rotateFlower linear infinite;
+}
+
+@keyframes rotateFlower {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

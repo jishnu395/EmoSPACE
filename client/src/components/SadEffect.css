@@ -1,0 +1,67 @@
+/* Full screen layer */
+.sad-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Individual rain drop */
+.rain-drop {
+  position: absolute;
+  top: -10vh;
+  width: 2px;
+  height: 60px;
+
+  /* Rain color */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(180, 220, 255, 0.8)
+  );
+
+  opacity: 0;
+  transform: rotate(20deg);
+
+  animation: rainFall linear infinite;
+}
+
+/* Diagonal fall + fade */
+@keyframes rainFall {
+  0% {
+    transform: translate(0, 0) rotate(20deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-200px, 120vh) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+/* Stationary Cat for Sad mood */
+.sad-cat {
+  position: fixed;
+  bottom: 2px;
+  left: 20px;
+
+  width: 300px; /* increase size here */
+
+  image-rendering: pixelated;
+
+  animation: none !important;
+  transform: none !important;
+  z-index: 3;
+}

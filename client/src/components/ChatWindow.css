@@ -1,0 +1,215 @@
+/* ===== Chat Window ===== */
+.chat-window {
+  width: 520px;
+  max-width: 92vw;
+  height: 380px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  /* No background, border or shadow — messages float over the scene */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.chat-window::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-window::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+  background: rgba(110, 193, 255, 0.5);
+  border-radius: 4px;
+}
+
+/* ── Greeting ── */
+.chat-greeting {
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 16px rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+}
+
+
+/* ── Bubble row ── */
+.chat-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.chat-row.user {
+  justify-content: flex-end;
+}
+
+.chat-row.bot {
+  justify-content: flex-start;
+}
+
+/* ── Bot avatar dot ── */
+.chat-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6ec1ff, #4aa3e0);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* ── Bubble ── */
+.chat-bubble {
+  padding: 10px 16px;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 78%;
+  word-break: break-word;
+  animation: bubbleIn 0.22s ease-out;
+  /* Strong shadow makes text pop over any background */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* User bubble — right, blue */
+.chat-row.user .chat-bubble {
+  background: linear-gradient(135deg, #4FC3F7, #0288d1);
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  border-bottom-right-radius: 4px;
+}
+
+/* Bot bubble — left, semi-transparent white glass */
+.chat-row.bot .chat-bubble {
+  background: rgba(255, 255, 255, 0.55);
+  color: #0d1a2e;
+  font-weight: 600;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Typing indicator ── */
+.chat-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: #e8f4ff;
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  width: fit-content;
+}
+
+.chat-typing span {
+  width: 6px;
+  height: 6px;
+  background: #4aa3e0;
+  border-radius: 50%;
+  animation: typingDot 1.2s ease-in-out infinite;
+}
+
+.chat-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.chat-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingDot {
+
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* ── Placeholder (empty) ── */
+.chat-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .chat-window {
+    width: 92vw;
+    height: 300px;
+  }
+}
+
+
+/* ── Mood — only bot bubble tint changes (no frame to apply border/shadow to) ── */
+
+.chat-mood-happy .chat-row.bot .chat-bubble {
+  background: rgba(255, 249, 196, 0.55);
+  color: #4a2f00;
+}
+
+.chat-mood-sad .chat-row.bot .chat-bubble {
+  background: rgba(200, 225, 255, 0.55);
+  color: #0d2a50;
+}
+
+.chat-mood-angry .chat-row.bot .chat-bubble {
+  background: rgba(255, 205, 205, 0.55);
+  color: #5f0000;
+}
+
+.chat-mood-stress .chat-row.bot .chat-bubble {
+  background: rgba(255, 230, 190, 0.55);
+  color: #4a1f00;
+}
+
+.chat-mood-calm .chat-row.bot .chat-bubble {
+  background: rgba(200, 245, 200, 0.55);
+  color: #0f2f0f;
+}

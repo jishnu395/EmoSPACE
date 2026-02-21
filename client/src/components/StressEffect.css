@@ -1,0 +1,33 @@
+/* Full screen effect layer */
+.stress-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Bubble style */
+.stress-bubble {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0.9;
+
+  /* Smooth levitation */
+  animation: bubbleFloat ease-in-out infinite;
+}
+
+/* ~2cm visual movement (20px) */
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

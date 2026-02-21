@@ -1,0 +1,44 @@
+.neutral-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.neutral-bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Moving track */
+.cloud-track {
+  position: absolute;
+  width: 200vw;
+  height: 100%;
+  display: flex;
+  animation: trackMove 220s linear infinite;
+}
+
+/* Individual clouds */
+.neutral-cloud {
+  position: absolute;
+  height: auto;
+  opacity: 0.95;
+  transform: scaleY(var(--scaleY, 1));
+}
+
+/* Move entire layout */
+@keyframes trackMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
