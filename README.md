@@ -280,8 +280,8 @@ GitHub Copilot was used extensively throughout development as an inline coding a
 | Name | Role |
 |---|---|
 | **Rohith Krishna S** | Full-stack development, AI integration, backend API |
-| **Bhuvana P** | Frontend development, UI/UX design, CSS animations |
-| **Jishnu V** | Pixel art (Aseprite), visual design, environment system |
+| **Bhuvana P** | Pixel art (Aseprite), visual design, environment system |
+| **Jishnu V** | Frontend development, UI/UX design, CSS animations |
 
 > 
 
